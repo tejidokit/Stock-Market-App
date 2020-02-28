@@ -9,12 +9,15 @@ const PORT = process.env.PORT || 5000;
 
 // API key/API Token: pk_e86914e5202e4b1a901d7d87e4f19360 
 //Create call_api function
-request('https://cloud.iexapis.com/stable/stock/fb/quote?token=pk_e86914e5202e4b1a901d7d87e4f19360', {json:true}, (err, res, body) => {
-    if (err) {return console.log(e);}
-    if (res.statusCode === 200) {
-        console.log(body)
+function call_api(finishedAPI) {
+    request('https://cloud.iexapis.com/stable/stock/fb/quote?token=pk_e86914e5202e4b1a901d7d87e4f19360', {json:true}, (err, res, body) => {
+    if (err) {return console.log(err);}
+    if (res.statusCode === 200){
+        //console.log(body);
+        finishedAPI(body); 
     };
 });
+}
 
 //set static folder
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -30,8 +33,10 @@ const otherstuff = "hello there, this is the other stuff...";
 
 //Set Handlebars routes
 app.get('/', function (req, res) {
-    res.render('home', {
-        stuff: otherstuff
+    call_api(function(doneAPI) {
+            res.render('home',{
+            stock: doneAPI
+        });
     });
 });
 
