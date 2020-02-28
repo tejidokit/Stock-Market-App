@@ -4,8 +4,11 @@ const app = express();
 const exphbs  = require('express-handlebars');
 const path =  require('path');
 const request = require('request');
-
+const bodyParser = requre('body-parser');
 const PORT = process.env.PORT || 5000;
+
+//use body parser middleware
+app.use(bodyParser.urlencoded({extended: false}));
 
 // API key/API Token: pk_e86914e5202e4b1a901d7d87e4f19360 
 //Create call_api function
@@ -31,7 +34,7 @@ app.set('view engine', 'handlebars');
 //Handlebars test 
 const otherstuff = "hello there, this is the other stuff...";
 
-//Set Handlebars routes
+//Set Handlebars app.js GET routes
 app.get('/', function (req, res) {
     call_api(function(doneAPI) {
             res.render('home',{
@@ -39,6 +42,20 @@ app.get('/', function (req, res) {
         });
     });
 });
+
+//Set Handlebars app.js POST routes
+app.post('/', function (req, res) {
+    call_api(function(doneAPI) {
+            posted_stuff = req.body.stock_ticker;
+            res.render('home', {
+            stock: doneAPI,
+            posted_stuff: posted_stuff
+        });
+    });
+});
+
+
+
 
 //create about page route
 app.get('/about', function (req, res) {
