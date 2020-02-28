@@ -4,7 +4,7 @@ const app = express();
 const exphbs  = require('express-handlebars');
 const path =  require('path');
 const request = require('request');
-const bodyParser = requre('body-parser');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
 //use body parser middleware
@@ -34,7 +34,7 @@ app.set('view engine', 'handlebars');
 //Handlebars test 
 const otherstuff = "hello there, this is the other stuff...";
 
-//Set Handlebars app.js GET routes
+//Set Handlebars app GET routes
 app.get('/', function (req, res) {
     call_api(function(doneAPI) {
             res.render('home',{
@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
     });
 });
 
-//Set Handlebars app.js POST routes
+//Set Handlebars app POST routes
 app.post('/', function (req, res) {
     call_api(function(doneAPI) {
             posted_stuff = req.body.stock_ticker;
