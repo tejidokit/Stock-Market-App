@@ -3,6 +3,25 @@ Passing API data from Backend to the Front End using Handle Bars and Node.JS
 
 ![](ezgif.com-video-to-gif.gif)
 
+Objective: Showcase ability to grab API data from the back end and display it in the front end.
+<br/>
+
+Technologies used: <br/>
+    * Bootstrap Framework <br/>
+    * IEX Cloud API <br/>
+    * Handlebars React JS <br/>
+    * Body Parser <br/>
+    * Node JS <br/>
+    
+Work to be done: <br/>
+    * Styling and responsiveness
+    
+    
+<br/><br/><br/><br/>
+
+
+
+
 sample logic
 
 //set up Express JS
