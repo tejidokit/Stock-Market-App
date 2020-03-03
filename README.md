@@ -22,7 +22,7 @@ Work to be done: <br/>
 
 
 
-sample logic
+sample code:<br/>
 
 //set up Express JS
 const express = require('express');
