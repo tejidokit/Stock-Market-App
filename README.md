@@ -1,4 +1,4 @@
-# nodejsstockmarketapp
+# Stock Market App
 Passing API data from Backend to the Front End using Handle Bars and Node.JS
 
 ![](ezgif.com-video-to-gif.gif)
